@@ -53,4 +53,9 @@ LoRA는 더 우수한 scalability와 task performance를 보여준다.
 
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/ab6885de-4f19-4def-93d4-d17b9e2fdbd8/image.png)
 
-[LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
+[LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)\
+
+<span style="background:#d4b106">*위 결과를 바탕으로, LoRA의 주요 특징을 세 가지로 나타낼 수 있다.*</span>
+1. Fine-Tuning 효율화: 사전 학습된 모델의 모든 매개변수를 업데이트하지 않고 저차원 행렬만 학습하며 학습 가능한 매개변수 수를 크게 줄임으로써 효율적인 Fine-Tuning을 가능하게 한다.
+2. domain 적응: LoRA는 필요한 정보만 선택적으로 학습할 수 있으므로, 새로운 도메인이나 작업에 적응하기 위한 효과적인 방법이다.
+3. 지속적 학습: 기존의 사전 학습된 모델 매개변수를 Freeze하여 망각 문제를 최소화. 새로운 데이터나 task에 대해서 LoRA로 추가학습만 수행하면 되므로, 지속적 학습에서 효과적이다.

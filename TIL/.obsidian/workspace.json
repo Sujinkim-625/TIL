@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",
+                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts"
+              "title": "Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
             }
           },
           {
@@ -118,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",
+                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +128,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts"
+              "title": "Backlinks for Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
             }
           },
           {
@@ -137,12 +137,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",
+                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts"
+              "title": "Outgoing links from Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
             }
           },
           {
@@ -164,10 +164,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md"
+                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts"
+              "title": "Outline of Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
             }
           },
           {
@@ -198,10 +198,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8a94205fc4c7222a",
+  "active": "4d66e9dec2437c2d",
   "lastOpenFiles": [
-    "Tags",
     "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",
+    "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
+    "Tags",
     "2024-12-09.md",
     "paper",
     "Welcome.md"

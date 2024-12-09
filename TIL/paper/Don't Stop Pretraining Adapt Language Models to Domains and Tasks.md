@@ -21,19 +21,25 @@ DAPT는 RoBERTa 모델을 대규모의 도메인 특화된 비라벨 텍스트�
 
 3.1. Analyzing Domain Similarity
 DAPT를 수행하기 전에, RoBERTa의 pretrained 도메인과 목표 도메인의 유사성을 평가한다.
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/51ff0b21-c779-484e-a669-07efcaf4da2b/image.png)
+
 분석 결과 RoBERTa의 pretrained domain은 NEWs와 Reviews domain과 유사성이 높은 반면, CS와 BioMed domain과는 유사성이 낮았다. 이는 도메인이 더 유사하지 않을수록 DAPT에 의해 더 큰 잠재적 성능 향상을 기대할 수 있음을 보여준다.
 
 3.2. Experiments
 (Baseline) RoBERTa pretrained model로 각 domain에 대한 masked LM loss를 계산한다.
 (DAPT) RoBERTa pretrained model을 초기 weight로 설정하고, 각 domain corpus를 활용해 추가로 pretraining을 진행하여 masked LM loss를 계산한다.
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/8b70bd47-5bf2-49e9-b4e2-6fff557da60c/image.png)
+
 NEWS 도메인을 제외한 모든 도메인에서 masked LM Loss가 감소한 것을 알 수 있다. 특히 PT와 유사도가 낮은 BIOMED와 CS 도메인에서 성능 향상이 높게 나타나는데 이는 도메인 유사도가 낮을수록 DAPT의 잠재력이 높아짐을 시사한다.
 
 (Baseline) Roberta pretrained 모델로 각 도메인의 downstream task에 대한 classification finetuning을 진행한다.
 (DAPT) 각 도메인으로 추가 pretraining을 진행한 뒤에, classification finetuning을 진행한다.
 (¬DAPT) 해당 task의 도메인과 무관한 도메인으로 추가 pretraining을 진행한 뒤에, classification finetuning을 진행한다.
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/f7e2a573-495e-4c4a-bc56-bdeea60a821d/image.png)
+
 DAPT가 baseline보다 대부분 좋은 성능을 나타냈다. masked LM loss에서 시사했던 것처럼 BioMed와 CS domain에서 효과가 가장 두드러졌다.
 
 3.3. Domain Relevance for DAPT
@@ -42,7 +48,9 @@ RoBERTa의 성능향상이 단순히 더 많은 데이터에 노출되었기 때
 
 3.4. Domain Overlap
 도메인 간 경계는 애매할 수 있다. 예를 들어 REVIEW와 NEWS는 40%의 단어를 공유한다. NEWS에 ROBERTA를 적응시키는 것이 REVIEWS 작업에서 크게 해롭지 않다는 것을 볼 수 있다.
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/f5284b35-5da7-4f9a-8cc0-33f867aab58f/image.png)
+
 도메인 간 유사도가 높다면, 다른 도메인이라 할지라도 효과적인 DAPT로 이어질 수 있다.
 
 ### 4 Task-adaptive Pretraining
@@ -51,16 +59,20 @@ RoBERTa의 성능향상이 단순히 더 많은 데이터에 노출되었기 때
 4.1. Experiments
 (TAPT) 각 도메인 별 task corpus로 추가 pretraining을 진행한 뒤에, classification finetuning을 진행한다.
 (DAPT + TAPT) DAPT 모델에 task corpus를 추가 pretraining을 진행한 뒤에, classification finetuning을 진행한다.
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/0400a619-b526-42e9-803d-84328414d0ba/image.png)
+
 baseline 대비 TAPT가 모든 task에서 성능 개선을 보였다. DAPT 대비 적은 resource임에도 몇 가지 작업에서는 TAPT가 DAPT의 성능을 넘어서는 것을 볼 수 있다.
 
 cross-task transfer
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/0cf23d68-4089-46a3-bb63-9f568d6df35a/image.png)
+
 하나의 작업에 adapt시키는 것이 동일한 도메인의 다른 작업에도 transfer되는지 탐구해본다. 예를 들어, RCT의 비라벨 데이터를 사용하여 모델을 추가로 pretraining한 뒤, CHEMPROT의 라벨링 데이터를 사용하여 fine-tuning한다. 이 설정을 Transfer-TAPT라고 부른다.
 실험 결과, TAPT는 단일 작업 성능을 최적화하지만, 작업간 transfer에는 부정적인 영향을 미친다.이는 같은 domain일지라도 task 별로 데이터 분포가 다를 수 있음을 시사한다.
 
 ### 5 Augmenting Training Data for Task-Adaptive Pretraining
 TAPT에서 훈련 데이터를 증강하는 방법을 다룬다.
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/fdfa3d30-2438-4e57-b847-52447d776d79/image.png)
 
 5.1. Human Curated-TAPT
@@ -72,11 +84,15 @@ Curated-TAPT를 추가한 것이 더 나은 성능을 보인다.
 VAMPIRE라는 경량화된 bag-of-words 언어 모델을 사용한다. 도메인에서 중복 제거된 100만개의 문장 샘플에 대해 사전 학습되며, 이를 통해 작업 및 도메인 샘플의 텍스트 임베딩을 생성한다. 이후 각 작업 문장에 대해 도메인 샘플에서 k개의 후보를 선택하는데, 다음 두가지 방법으로 후보를 선택한다.
 1. kNN-TAPT: 가장 가까운 이웃을 선택하는 방식
 2. RAND-TAPT: 무작위로 선택하는 방식
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/b07c7c29-e120-42f6-8729-bb2684c2149b/image.png)
+
 kNN-TAPT는 모든 경우에서 TAPT보다 우수한 성능을 발휘했다.
 
 5.3. Computational Requirements
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/9c65fab6-d6c2-43df-bbd1-d83b0bbb680c/image.png)
+
 TAPT는 DAPT보다 훨씬 효율적이다. 
 Curated-TAPT는 가장 높은 비용 대비 성능 비용을 보여주었지만, 자동화된 방법인 kNN-TAPT는 DAPT보다 훨씬 저렴한 비용으로 작업을 수행할 수 있다.
 

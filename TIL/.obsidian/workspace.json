@@ -200,9 +200,9 @@
   },
   "active": "8a94205fc4c7222a",
   "lastOpenFiles": [
-    "paper/LoRA Low-Rank Adaptation of Large Language Models.md",
-    "AI&ML/LLM, PEFT, LoRA.md",
     "AI&ML/AI&ML.md",
+    "AI&ML/LLM, PEFT, LoRA.md",
+    "paper/LoRA Low-Rank Adaptation of Large Language Models.md",
     "AI&ML",
     "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
     "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",

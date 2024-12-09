@@ -65,6 +65,7 @@ RoBERTa의 성능향상이 단순히 더 많은 데이터에 노출되었기 때
 baseline 대비 TAPT가 모든 task에서 성능 개선을 보였다. DAPT 대비 적은 resource임에도 몇 가지 작업에서는 TAPT가 DAPT의 성능을 넘어서는 것을 볼 수 있다.
 
 cross-task transfer
+
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/0cf23d68-4089-46a3-bb63-9f568d6df35a/image.png)
 
 하나의 작업에 adapt시키는 것이 동일한 도메인의 다른 작업에도 transfer되는지 탐구해본다. 예를 들어, RCT의 비라벨 데이터를 사용하여 모델을 추가로 pretraining한 뒤, CHEMPROT의 라벨링 데이터를 사용하여 fine-tuning한다. 이 설정을 Transfer-TAPT라고 부른다.

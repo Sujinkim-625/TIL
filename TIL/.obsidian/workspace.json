@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
+                "file": "AI&ML/LLM, PEFT, LoRA.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
+              "title": "LLM, PEFT, LoRA"
             }
           },
           {
@@ -118,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
+                "file": "AI&ML/LLM, PEFT, LoRA.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +128,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
+              "title": "Backlinks for LLM, PEFT, LoRA"
             }
           },
           {
@@ -137,12 +137,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
+                "file": "AI&ML/LLM, PEFT, LoRA.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
+              "title": "Outgoing links from LLM, PEFT, LoRA"
             }
           },
           {
@@ -164,10 +164,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md"
+                "file": "AI&ML/LLM, PEFT, LoRA.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Don't Stop Pretraining Adapt Language Models to Domains and Tasks"
+              "title": "Outline of LLM, PEFT, LoRA"
             }
           },
           {
@@ -198,10 +198,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4d66e9dec2437c2d",
+  "active": "8a94205fc4c7222a",
   "lastOpenFiles": [
-    "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",
+    "paper/LoRA Low-Rank Adaptation of Large Language Models.md",
+    "AI&ML/LLM, PEFT, LoRA.md",
+    "AI&ML/AI&ML.md",
+    "AI&ML",
     "paper/Don't Stop Pretraining Adapt Language Models to Domains and Tasks.md",
+    "paper/Similarity is Not All You Need Endowing Retrieval-Augmented Generation with Multi–layered Thoughts.md",
     "Tags",
     "2024-12-09.md",
     "paper",

@@ -45,8 +45,7 @@
   "showRibbon": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "/",
-    "//AI&ML"
+    "/"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

@@ -1,7 +1,3 @@
----
-aliases:
-  - "Real-time machine learning: challenges and solutions"
----
 [Real-time machine learning: challenges and solutions](https://huyenchip.com/2022/01/02/real-time-machine-learning-challenges-and-solutions.html)
 
 ## Towards Online Prediction

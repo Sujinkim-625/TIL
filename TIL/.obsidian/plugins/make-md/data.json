@@ -45,7 +45,9 @@
   "showRibbon": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "/"
+    "/",
+    "//Tags",
+    "//python"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

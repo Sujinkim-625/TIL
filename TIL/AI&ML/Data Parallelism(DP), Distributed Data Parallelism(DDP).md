@@ -65,7 +65,7 @@ backward()와 all-reduce를 중첩시키는 것이 가장 효율적인 방식이
  ![](https://velog.velcdn.com/images/s0o0_jiiin/post/1be7c0cf-507b-416d-a004-f8094a56ce80/image.png)
  
 참고자료
-https://sonstory.tistory.com/123
-https://da2so.tistory.com/21
-https://nbviewer.org/github/tunib-ai/large-scale-lm-tutorials/blob/main/notebooks/05_data_parallelism.ipynb
-https://bloofer.net/114
+https://sonstory.tistory.com/123.  
+https://da2so.tistory.com/21.  
+https://nbviewer.org/github/tunib-ai/large-scale-lm-tutorials/blob/main/notebooks/05_data_parallelism.ipynb.  
+https://bloofer.net/114.  

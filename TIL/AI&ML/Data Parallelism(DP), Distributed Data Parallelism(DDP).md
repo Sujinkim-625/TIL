@@ -12,7 +12,7 @@ Forward pass
 - forward된 outputs를 master GPU에 다시 모아준다.(gather)
 - Logits으로부터 Loss를 계산한다.
 
-![[Pasted image 20250102225701.png]]
+![](https://velog.velcdn.com/images/s0o0_jiiin/post/867ac412-1c6a-4c3f-b361-5567f75afc76/image.png)
 
 Backward pass
 * 계산된 Loss를 각 디바이스에 scatter한다.
@@ -20,7 +20,7 @@ Backward pass
 * 계산된 모든 Gradient를 GPU 0로 Reduce하여 GPU 0에 전부 더한다.
 * 더해진 Gradients를 이용하여 Gradient 0에 있는 모델을 업데이트한다.
 
-![[Pasted image 20250102230501.png]]
+![](https://velog.velcdn.com/images/s0o0_jiiin/post/233f872b-643a-4b8b-a4e6-0aaf95d3e9ba/image.png)
 
 ### torch.nn.DataParallel의 문제점
 *single-process multi-thread parallelism이 GIL에 의한 방해를 받는다.*
@@ -31,7 +31,7 @@ GIL이란, 여러 개의 thread가 파이썬 바이트 코드를 한번에 하�
 GIL의 등장 배경은 다음과 같다.
 레퍼런스 카운팅이란 파이썬에서 생성된 객체가 객체를 가리키는 참조의 수를 추적하는 참조 카운트 변수를 가진다는 것을 의미한다.
 
-![[Pasted image 20250102235206.png]]
+![](https://velog.velcdn.com/images/s0o0_jiiin/post/b00f378e-f54d-46f2-9ee7-be29a29a8b6b/image.png)
 
 그림에서 보듯이 우측의 객체는 참조의 수가 2인데, 좌측의 객체는 참조가 없어져 0이 된다. 이 개수가 0에 도달하면 개체가 점유한 메모리가 메모리 가비지 컬렉터에 의해 해제된다. 문제는 이 레퍼런스 카운팅 변수가 멀티 스레드 환경에서 두 스레드가 동시에 값을 늘리거나 줄이는 Race Condition이 발생할 수 있다는 것이다. 이러한 상황이 발생하면 메모리 누수가 발생하거나 객체에 대한 참조가 남아있는데도 메모리를 잘못 해제할 수 있다.
 GIL은 그래서 멀티 스레드 프로그램에서 이러한 레퍼런스 카운팅에 의해 발생할 수 있는 문제를 미리 예방하고자 한다.
@@ -41,10 +41,8 @@ GIL은 그래서 멀티 스레드 프로그램에서 이러한 레퍼런스 카�
 따라서, Gradient를 Gather하지 않고 각 디바이스에서 자체적으로 step()을 수행한다면 모델을 매번 복제하지 않아도 될 것이다.
 
 All-reduce 연산을 통해 각 디바이스에서 계산된 Gradients를 모두 더해서 모든 디바이스에 균일하게 뿌려준다면 각 디바이스에서 자체적으로 step()을 수행할 수 있다.
-![[Pasted image 20250102232030.png]]
 
 하지만, All-reduce 연산 또한 매우 비용이 높다.
-
 ## Distributed Data Parallelism
 Data Parallelism의 문제를 개선하기 위해 등장한 데이터 병렬처리 모델으로, single/multi-node & multi-GPU에서 동작하는 multi-process 모듈이다. 
 
@@ -56,15 +54,15 @@ Data Parallelism의 문제를 개선하기 위해 등장한 데이터 병렬처�
 
 마스터 프로세스를 사용하지 않기 때문에 특정 디바이스로 부하가 쏠리지 않고, 효율적인 방식으로 모든 디바이스의 파라미터를 동시에 업데이트하기 때문에 파라미터를 매번 replicate하지 않아도 된다는 장점을 가지고 있다.
 
-![[Pasted image 20250102233155.png]]
+![](https://velog.velcdn.com/images/s0o0_jiiin/post/3ec164ad-0c1e-479a-929f-522c22b128fc/image.png)
 
 backward()와 all-reduce를 중첩시키는 것이 가장 효율적인 방식이다. all-reduce 네트워크 통신에 해당되며, backward(), step()은 GPU 연산이기 때문에 동시에 처리할 수 있다. 이들을 중첩시키면, computation과 communication이 최대한으로 overlap되기 때문에 연산 효율이 크게 증가한다. backward 연산과 all-reduce 연산을 중첩하는 경우에 backward 연산이 뒤쪽 레이어부터 순차적으로 이루어지기 때문에 계산이 끝난 뒤쪽 레이어부터 먼저 전송하게 된다.
 
-![[Pasted image 20250102234340.png]]
+![](https://velog.velcdn.com/images/s0o0_jiiin/post/fc4e6afd-5784-43eb-bda7-7013e17cb293/image.png)
 
 또 all-reduce 연산의 경우 layer마다 이루어지는 것이 아니라 Gradient Bucketing을 수행하여 bucket이 가득찰 때 수행하게 된다. Gradient bucketing은 일정한 사이즈의 bucket에 gradient를 저장해두고, 가득차면 다른 프로세스로 전송하는 방식을 말한다. backward 연산과정에서 뒤쪽부터 계산된 gradient들을 차례로 bucket에 저장하다가 bucket의 용량이 가득차면 all-reduce를 수행해서 각 디바이스에 gradient 평균 값을 계산하여 전달한다. 
 
- ![[Pasted image 20250102234852.png]]
+ ![](https://velog.velcdn.com/images/s0o0_jiiin/post/1be7c0cf-507b-416d-a004-f8094a56ce80/image.png)
  
 참고자료
 https://sonstory.tistory.com/123

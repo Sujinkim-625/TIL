@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "paper/G-Eval NLG Evaluation using GPT-4 with Better Human Alignment01.md",
+                "file": "paper/Simple and Controllable Music Generation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "G-Eval NLG Evaluation using GPT-4 with Better Human Alignment01"
+              "title": "Simple and Controllable Music Generation"
             }
           }
         ]
@@ -186,8 +186,9 @@
   },
   "active": "0b73fb9ba598d3b3",
   "lastOpenFiles": [
-    "translate/Real-time machine learning challenges and solutions.md",
     "paper/G-Eval NLG Evaluation using GPT-4 with Better Human Alignment01.md",
+    "paper/Simple and Controllable Music Generation.md",
+    "translate/Real-time machine learning challenges and solutions.md",
     "AI&ML/Data Parallelism(DP), Distributed Data Parallelism(DDP).md",
     "paper/QLORA Efficient Finetuning of Quantized LLMs.md",
     "paper/LoRA Low-Rank Adaptation of Large Language Models.md",

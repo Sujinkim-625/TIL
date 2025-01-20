@@ -48,7 +48,9 @@
     "/",
     "//Tags",
     "//python",
-    "//AI&ML"
+    "//AI&ML",
+    "//paper",
+    "//translate"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

@@ -81,6 +81,7 @@ LLM을 평가자로 사용할 때 우려사항 중 하나는 모델이 직접 �
 3) 사람이 평가했을 때 GPT-3.5가 작성한 것과 사람이 작성한 요약이 같은 품질이라고 평가한 경우 
 
 ![](https://velog.velcdn.com/images/s0o0_jiiin/post/3ddd70ae-9e9b-4079-9826-1cba377a1eb7/image.png)
+
 그림에서 볼 수 있듯이 G-EVAL-4는 항상 GPT-3.5가 작성한 요약을 선호한다.
 
 그 이유는 다음과 같다.
